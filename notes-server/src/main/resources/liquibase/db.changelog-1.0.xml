@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="1.0.0" author="Ivan.Yuyukin">
+        <createTable tableName="notes">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+
+            <column name="content" type="VARCHAR(4000)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+
+            <column name="created_date" type="TIMESTAMP" defaultValue="CURRENT_TIMESTAMP()">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="notification_date" type="TIMESTAMP">
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.1" author="Ivan.Yuyukin">
+        <insert tableName="notes">
+            <column name="title" value="Программирование"/>
+            <column name="title" value="Решить задачи по рекурсивному программированию"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
